@@ -23,7 +23,11 @@ def play_start(board):
     os.system('cls||clear')
     display_board(board, 'Welcome to TIC TAC TOE')
     print(player(board))
-    entry = input('Please enter square number 1 - 9 \n')
+    entry = input(
+        'Please enter square number 1 - 9 \n or "end" to stop the game.')
+    if entry.lower() == 'end':
+        print("game ended by user")
+        return
     try:
         entry = int(entry)
         if entry in range(1, 10) and board[entry-1] == ' ' and isinstance(entry, int):
@@ -47,6 +51,7 @@ def play_continue(board, message=''):
         elif entry in range(1, 10) and isinstance(entry, int):
             board[entry - 1] = player(board)
             print("you chose: ", entry)
+            check_win_combos(board)
     except:
         play_continue(
             board, "{e} is not a valid choice, choose again please.".format(e=entry))
@@ -58,6 +63,29 @@ def player(board):
     player = 'X' if turns % 2 == 0 else 'O'
     print("Player {p}, it is your turn.".format(p=player))
     return player
+
+
+def check_win_combos(board):
+    win_combos = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8]
+    ]
+    for arr in win_combos:
+        if board[arr[0]] == board[arr[1]] and board[arr[0]] == board[arr[2]]:
+            return game_end(board[arr[0]])
+        else:
+            print("no winner yet")
+            play_continue(board)
+
+
+def game_end(token):
+    print("{t} YOU WIN !!!!!!".format(t=token))
 
 
 play_start(board)
