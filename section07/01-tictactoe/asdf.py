@@ -23,11 +23,7 @@ def play_start(board):
     os.system('cls||clear')
     display_board(board, 'Welcome to TIC TAC TOE')
     print(player(board))
-    entry = input(
-        'Please enter square number 1 - 9 \n or "end" to stop the game.')
-    if entry.lower() == 'end':
-        print("game ended by user")
-        return
+    entry = input('Please enter square number 1 - 9 \n')
     try:
         entry = int(entry)
         if entry in range(1, 10) and board[entry-1] == ' ' and isinstance(entry, int):
