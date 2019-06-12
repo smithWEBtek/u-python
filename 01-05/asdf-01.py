@@ -1,4 +1,4 @@
-# print('hello \npython')
+print('hello \npython')
 # print('hello \tpython')
 # print(len('hello'))
 
