@@ -5,12 +5,14 @@ class Dog():
     def __init__(self, name, breed):
         self.name = name
         self.breed = breed
+        self.age = age
 
-    def bark(self, number):
-        print("WOOF!!! my name is: {n} \n".format(n=self.name) * number)
+    def bark(self, number, age:
+        print("WOOF!!! my name is: {n} \n ... and I am {age} years old.".format(
+            n=self.name) * number, self.age)
 
 
-# dog1 = Dog('Sparky', 'Shepherd')
+dog1 = Dog('Sparky', 'Shepherd', 3)
 
 # print(dog1.name)
 # print(dog1.breed)
