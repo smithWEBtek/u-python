@@ -7,7 +7,7 @@ class Dog():
         self.breed = breed
 
     def bark(self, number):
-        print("WOOF! my name is: {n} \n".format(n=self.name) * number)
+        print("WOOF!!! my name is: {n} \n".format(n=self.name) * number)
 
 
 # dog1 = Dog('Sparky', 'Shepherd')
